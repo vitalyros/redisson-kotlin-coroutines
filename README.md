@@ -8,9 +8,9 @@ A wrapper for Redisson Reactive API to use in kotlin coroutines
 
 # Implemented API Checklist
 
-- [ ] Keys
-- [ ] Bucket
-- [ ] Buckets
+- [x] Keys
+- [x] Bucket
+- [x] Buckets
 - [ ] IdGenerator
 - [ ] Semaphore
 - [ ] PermitExpirableSemaphore
