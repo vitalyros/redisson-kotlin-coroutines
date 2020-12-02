@@ -1,4 +1,4 @@
-package org.vitaliros.redisson.kotlin.coroutines.reactive
+package org.vitalyros.redisson.kotlin.coroutines.reactive
 
 import kotlinx.coroutines.delay
 import org.junit.Assert
@@ -6,7 +6,7 @@ import org.junit.Test
 import java.util.*
 import java.util.concurrent.TimeUnit
 
-class BucketCoroutinesReactiveDerivedTest : CoroutinesTest() {
+open class BucketCoroutinesReactiveDerivedTest : CoroutinesTest() {
 
     @Test
     fun testExpire() = runTest {

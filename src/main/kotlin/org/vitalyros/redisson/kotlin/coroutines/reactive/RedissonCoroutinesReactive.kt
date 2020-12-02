@@ -2,15 +2,13 @@ package org.vitalyros.redisson.kotlin.coroutines.reactive;
 
 import org.redisson.api.RKeys
 import org.redisson.api.RLiveObjectService
+import org.redisson.api.RLock
 import org.redisson.api.RedissonReactiveClient
 import org.redisson.api.redisnode.BaseRedisNodes
 import org.redisson.api.redisnode.RedisNodes
 import org.redisson.client.codec.Codec
 import org.redisson.config.Config
-import org.vitalyros.redisson.kotlin.coroutines.RBucketCoroutines
-import org.vitalyros.redisson.kotlin.coroutines.RBucketsCoroutines
-import org.vitalyros.redisson.kotlin.coroutines.RKeysCoroutines
-import org.vitalyros.redisson.kotlin.coroutines.RedissonCoroutinesClient
+import org.vitalyros.redisson.kotlin.coroutines.*
 import java.util.concurrent.TimeUnit
 
 class RedissonCoroutinesReactive(val wrapped: RedissonReactiveClient) : RedissonCoroutinesClient {
@@ -25,6 +23,12 @@ class RedissonCoroutinesReactive(val wrapped: RedissonReactiveClient) : Redisson
     override fun <V> findBuckets(pattern: String?): List<RBucketCoroutines<V>> = wrapped.findBuckets<V>(pattern).map { BucketCoroutinesReactive(it) }
 
     override fun getKeys(): RKeysCoroutines = KeysCoroutinesReactive(wrapped.keys)
+
+    override fun getFairLock(name: String): RLockCoroutines = LockCoroutinesReactive(wrapped.getFairLock(name))
+
+    override fun getLock(name: String): RLockCoroutines = LockCoroutinesReactive(wrapped.getLock(name))
+
+    override fun getMultiLock(vararg locks: RLock): RLockCoroutines = LockCoroutinesReactive(wrapped.getMultiLock(*locks))
 
     override fun shutdown() = wrapped.shutdown()
 

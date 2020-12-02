@@ -1,5 +1,7 @@
 package org.vitalyros.redisson.kotlin.coroutines;
 
+import org.redisson.api.RLock
+import org.redisson.api.RLockReactive
 import org.redisson.client.codec.Codec
 import org.redisson.config.Config
 import java.util.concurrent.TimeUnit
@@ -57,6 +59,42 @@ interface RedissonCoroutinesClient {
      * @return Keys object
      */
     fun getKeys(): RKeysCoroutines
+
+    /**
+     * Returns Lock instance by name.
+     *
+     *
+     * Implements a **fair** locking so it guarantees an acquire order by threads.
+     *
+     *
+     * To increase reliability during failover, all operations wait for propagation to all Redis slaves.
+     *
+     * @param name - name of object
+     * @return Lock object
+     */
+    fun getFairLock(name: String): RLockCoroutines
+
+    /**
+     * Returns Lock instance by name.
+     *
+     *
+     * Implements a **non-fair** locking so doesn't guarantees an acquire order by threads.
+     *
+     *
+     * To increase reliability during failover, all operations wait for propagation to all Redis slaves.
+     *
+     * @param name - name of object
+     * @return Lock object
+     */
+    fun getLock(name: String): RLockCoroutines
+
+    /**
+     * Returns MultiLock instance associated with specified `locks`
+     *
+     * @param locks - collection of locks
+     * @return MultiLock object
+     */
+    fun getMultiLock(vararg locks: RLock): RLockCoroutines
 
     /**
      * Shutdown Redisson instance but **NOT** Redis server
