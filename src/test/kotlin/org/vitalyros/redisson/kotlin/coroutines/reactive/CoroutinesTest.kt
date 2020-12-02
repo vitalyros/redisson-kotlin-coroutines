@@ -1,4 +1,4 @@
-package org.vitaliros.redisson.kotlin.coroutines.reactive
+package org.vitalyros.redisson.kotlin.coroutines.reactive
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope
@@ -14,7 +14,8 @@ import org.vitalyros.redisson.kotlin.coroutines
 
 open class CoroutinesTest {
     companion object {
-        var testCoroutineContext = GlobalScope.coroutineContext
+        var testScope = GlobalScope
+        var testCoroutineContext = testScope.coroutineContext
         lateinit var redisson: RedissonCoroutinesClient
 
         @JvmStatic

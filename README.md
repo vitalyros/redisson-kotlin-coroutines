@@ -14,7 +14,7 @@ A wrapper for Redisson Reactive API to use in kotlin coroutines
 - [ ] IdGenerator
 - [ ] Semaphore
 - [ ] PermitExpirableSemaphore
-- [ ] Lock
+- [x] Lock
 - [ ] ReadWriteLock
 - [ ] List
 - [ ] Map

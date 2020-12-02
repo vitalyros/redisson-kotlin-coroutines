@@ -1,8 +1,7 @@
-package org.vitaliros.redisson.kotlin.coroutines.reactive
+package org.vitalyros.redisson.kotlin.coroutines.reactive
 
-import junit.framework.Assert.assertEquals
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.Assert
+import org.junit.Assert.*
 import org.junit.Test
 import org.redisson.client.codec.StringCodec
 import java.util.*
@@ -18,7 +17,7 @@ class BucketsReactiveDerivedTest : CoroutinesTest() {
         val expected: MutableMap<String, String> = HashMap()
         expected["test1"] = "someValue1"
         expected["test3"] = "someValue3"
-        Assert.assertEquals(expected, result)
+        assertEquals(expected, result)
     }
 
     @Test

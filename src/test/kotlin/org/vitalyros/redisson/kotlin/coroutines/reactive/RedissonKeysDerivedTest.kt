@@ -1,7 +1,7 @@
-package org.vitaliros.redisson.kotlin.coroutines.reactive
+package org.vitalyros.redisson.kotlin.coroutines.reactive
 
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.Assert
+import org.junit.Assert.*
 import org.junit.Test
 
 class RedissonKeysDerivedTest : CoroutinesTest() {
@@ -38,9 +38,9 @@ class RedissonKeysDerivedTest : CoroutinesTest() {
         bucket2.set("someValue2")
         assertThat(redisson.getKeys().randomKey()).isIn("test1", "test2")
         redisson.getKeys().delete("test1")
-        Assert.assertEquals("test2", redisson.getKeys().randomKey())
+        assertEquals("test2", redisson.getKeys().randomKey())
         redisson.getKeys().flushdb()
-        Assert.assertNull(redisson.getKeys().randomKey())
+        assertNull(redisson.getKeys().randomKey())
     }
 
 //todo: uncomment after implementing getMap
@@ -50,7 +50,7 @@ class RedissonKeysDerivedTest : CoroutinesTest() {
 //        bucket.set("someValue")
 //        val map = redisson.getMap("test2")
 //        map.fastPut("1", "2")
-//        Assert.assertEquals(2, redisson.getKeys().deleteByPattern("test?").toInt())
+//        assertEquals(2, redisson.getKeys().deleteByPattern("test?").toInt())
 //    }
 //
 //    @Test
@@ -59,7 +59,7 @@ class RedissonKeysDerivedTest : CoroutinesTest() {
 //        bucket.set("someValue")
 //        val map = redisson.getMap("map2")
 //        map.fastPut("1", "2")
-//        Assert.assertEquals(2, redisson.getKeys().delete("test", "map2").toInt())
-//        Assert.assertEquals(0, redisson.getKeys().delete("test", "map2").toInt())
+//        assertEquals(2, redisson.getKeys().delete("test", "map2").toInt())
+//        assertEquals(0, redisson.getKeys().delete("test", "map2").toInt())
 //    }
 }
