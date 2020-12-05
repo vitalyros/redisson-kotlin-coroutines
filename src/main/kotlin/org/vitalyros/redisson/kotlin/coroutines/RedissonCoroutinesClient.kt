@@ -5,6 +5,11 @@ import org.redisson.client.codec.Codec
 import org.redisson.config.Config
 import java.util.concurrent.TimeUnit
 
+/**
+ * Redisson client to be called from kotlin coroutines
+ *
+ * Documentation copied from RedissonReactiveClient by Nikita Koksharov
+ */
 interface RedissonCoroutinesClient {
     /**
      * Returns object holder instance by name
