@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit
 /**
  * Base Coroutines interface for all Redisson objects
  *
- * Based on original org.redisson.api.RObject
+ * Based on the original org.redisson.api.RObject by Nikita Koksharov
  * @see org.redisson.api.RObject
  * Modified to use within kotlin coroutines
  */

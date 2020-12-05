@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit
 import java.util.stream.Stream
 
 /**
- * Based on original org.redisson.api.RKeys
+ * Based on the original org.redisson.api.RKeys by Nikita Koksharov
  * @see org.redisson.api.RKeys
  * Modified to use within kotlin coroutines
  */

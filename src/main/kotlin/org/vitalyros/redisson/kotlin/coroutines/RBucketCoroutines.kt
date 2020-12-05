@@ -5,9 +5,11 @@ import java.util.concurrent.TimeUnit
 /**
  * Coroutines implementation of object holder. Max size of object is 512MB
  *
- * Identical to Redisson's RBucket interface but with suspend modifier applied to all functions that require suspension and does not extend RBucketAsync
- * @see org.redisson.api.RBucket
  *
+ * Based on the original org.redisson.api.RBucket by Nikita Koksharov
+ * @see org.redisson.api.RBucket
+ * Modified to use within kotlin coroutines
+
  * @param <V> - the type of object
  */
 interface RBucketCoroutines<V>: RExpirableCoroutines {

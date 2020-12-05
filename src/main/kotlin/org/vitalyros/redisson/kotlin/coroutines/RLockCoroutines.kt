@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit
 /**
  * Reactive interface for Lock object
  *
- * Based on original org.redisson.api.RLockReactive
+ * Based on the original org.redisson.api.RLockReactive by Nikita Koksharov
  * @see org.redisson.api.RLockReactive
  * Modified to use within kotlin coroutines
  *

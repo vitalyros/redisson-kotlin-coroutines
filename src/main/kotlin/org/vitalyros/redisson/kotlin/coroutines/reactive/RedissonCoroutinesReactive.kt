@@ -1,11 +1,7 @@
 package org.vitalyros.redisson.kotlin.coroutines.reactive;
 
-import org.redisson.api.RKeys
-import org.redisson.api.RLiveObjectService
 import org.redisson.api.RLock
 import org.redisson.api.RedissonReactiveClient
-import org.redisson.api.redisnode.BaseRedisNodes
-import org.redisson.api.redisnode.RedisNodes
 import org.redisson.client.codec.Codec
 import org.redisson.config.Config
 import org.vitalyros.redisson.kotlin.coroutines.*
@@ -29,6 +25,12 @@ class RedissonCoroutinesReactive(val wrapped: RedissonReactiveClient) : Redisson
     override fun getLock(name: String): RLockCoroutines = LockCoroutinesReactive(wrapped.getLock(name))
 
     override fun getMultiLock(vararg locks: RLock): RLockCoroutines = LockCoroutinesReactive(wrapped.getMultiLock(*locks))
+
+    override fun getSemaphore(name: String): RSemaphoreCoroutines = SemaphoreCoroutinesReactive(wrapped.getSemaphore(name))
+
+    override fun getPermitExpirableSemaphore(name: String): RPermitExpirableSemaphoreCoroutines = PermitExpirableSemaphoreCoroutinesReactive(wrapped.getPermitExpirableSemaphore(name))
+
+    override fun getReadWriteLock(name: String): RReadWriteLockCoroutines = ReadWriteLockCoroutinesReactive(wrapped.getReadWriteLock(name))
 
     override fun shutdown() = wrapped.shutdown()
 

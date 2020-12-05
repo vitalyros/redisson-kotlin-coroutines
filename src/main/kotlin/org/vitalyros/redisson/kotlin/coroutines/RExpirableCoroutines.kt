@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit
  * Base coroutines interface for all Redisson objects
  * which support expiration or TTL
  *
- * Based on original org.redisson.api.RExpirable
+ * Based on the original org.redisson.api.RExpirable by Nikita Koksharov
  * @see org.redisson.api.RExpirable
  * Modified to use within kotlin coroutines
  */

@@ -1,7 +1,6 @@
 package org.vitalyros.redisson.kotlin.coroutines;
 
 import org.redisson.api.RLock
-import org.redisson.api.RLockReactive
 import org.redisson.client.codec.Codec
 import org.redisson.config.Config
 import java.util.concurrent.TimeUnit
@@ -95,6 +94,34 @@ interface RedissonCoroutinesClient {
      * @return MultiLock object
      */
     fun getMultiLock(vararg locks: RLock): RLockCoroutines
+
+    /**
+     * Returns semaphore instance by name
+     *
+     * @param name - name of object
+     * @return Semaphore object
+     */
+    fun getSemaphore(name: String): RSemaphoreCoroutines
+
+    /**
+     * Returns semaphore instance by name.
+     * Supports lease time parameter for each acquired permit.
+     *
+     * @param name - name of object
+     * @return PermitExpirableSemaphore object
+     */
+    fun getPermitExpirableSemaphore(name: String): RPermitExpirableSemaphoreCoroutines
+
+    /**
+     * Returns ReadWriteLock instance by name.
+     *
+     *
+     * To increase reliability during failover, all operations wait for propagation to all Redis slaves.
+     *
+     * @param name - name of object
+     * @return Lock object
+     */
+    fun getReadWriteLock(name: String): RReadWriteLockCoroutines
 
     /**
      * Shutdown Redisson instance but **NOT** Redis server

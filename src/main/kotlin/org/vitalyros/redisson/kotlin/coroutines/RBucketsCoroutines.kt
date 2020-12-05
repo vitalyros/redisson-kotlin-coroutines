@@ -18,7 +18,7 @@ package org.vitalyros.redisson.kotlin.coroutines
 /**
  * Operations over multiple Bucket objects.
  *
- * Based on original org.redisson.api.RBuckets
+ * Based on the original org.redisson.api.RBuckets by Nikita Koksharov
  * @see org.redisson.api.RBuckets
  * Modified to use within kotlin coroutines
  *

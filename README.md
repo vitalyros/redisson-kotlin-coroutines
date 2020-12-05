@@ -12,10 +12,10 @@ A wrapper for Redisson Reactive API to use in kotlin coroutines
 - [x] Bucket
 - [x] Buckets
 - [ ] IdGenerator
-- [ ] Semaphore
-- [ ] PermitExpirableSemaphore
+- [x] Semaphore
+- [x] PermitExpirableSemaphore
 - [x] Lock
-- [ ] ReadWriteLock
+- [x] ReadWriteLock
 - [ ] List
 - [ ] Map
 - [ ] Set
