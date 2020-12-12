@@ -1,5 +1,6 @@
 package org.vitalyros.redisson.kotlin.coroutines.reactive;
 
+import org.redisson.api.MapOptions
 import org.redisson.api.RLock
 import org.redisson.api.RedissonReactiveClient
 import org.redisson.client.codec.Codec
@@ -17,6 +18,12 @@ class RedissonCoroutinesReactive(val wrapped: RedissonReactiveClient) : Redisson
     override fun getBuckets(codec: Codec): RBucketsCoroutines = BucketsRoroutinesReactive(wrapped.getBuckets(codec))
 
     override fun <V> findBuckets(pattern: String?): List<RBucketCoroutines<V>> = wrapped.findBuckets<V>(pattern).map { BucketCoroutinesReactive(it) }
+
+    override fun <K, V> getMap(name: String): RMapCoroutines<K, V> = MapCoroutinesReactive(wrapped.getMap(name))
+
+    override fun <K, V> getMap(name: String, codec: Codec): RMapCoroutines<K, V> = MapCoroutinesReactive(wrapped.getMap(name, codec))
+
+    override fun <K, V> getMap(name: String, codec: Codec, options: MapOptions<K, V>): RMapCoroutines<K, V> = MapCoroutinesReactive(wrapped.getMap(name, codec, options))
 
     override fun getKeys(): RKeysCoroutines = KeysCoroutinesReactive(wrapped.keys)
 

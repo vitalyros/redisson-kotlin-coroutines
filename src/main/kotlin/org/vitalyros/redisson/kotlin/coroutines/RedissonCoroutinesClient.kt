@@ -1,6 +1,8 @@
 package org.vitalyros.redisson.kotlin.coroutines;
 
+import org.redisson.api.MapOptions
 import org.redisson.api.RLock
+import org.redisson.api.RMapReactive
 import org.redisson.client.codec.Codec
 import org.redisson.config.Config
 import java.util.concurrent.TimeUnit
@@ -53,7 +55,7 @@ interface RedissonCoroutinesClient {
      * @param <V> type of value
      * @param pattern - pattern for name of buckets
      * @return list of buckets
-    </V> */
+     */
     fun <V> findBuckets(pattern: String?): List<RBucketCoroutines<V>>
 
     /**
@@ -63,6 +65,41 @@ interface RedissonCoroutinesClient {
      * @return Keys object
      */
     fun getKeys(): RKeysCoroutines
+
+    /**
+     * Returns map instance by name.
+     *
+     * @param <K> type of keys
+     * @param <V> type of values
+     * @param name - name of object
+     * @return Map object
+     */
+    fun <K, V> getMap(name: String): RMapCoroutines<K, V>
+
+    /**
+     * Returns map instance by name
+     * using provided codec for both map keys and values.
+     *
+     * @param <K> type of keys
+     * @param <V> type of values
+     * @param name - name of object
+     * @param codec - codec for keys and values
+     * @return Map object
+     */
+    fun <K, V> getMap(name: String, codec: Codec): RMapCoroutines<K, V>
+
+    /**
+     * Returns map instance by name
+     * using provided codec for both map keys and values.
+     *
+     * @param <K> type of key
+     * @param <V> type of value
+     * @param name - name of object
+     * @param codec - codec for keys and values
+     * @param options - map options
+     * @return Map object
+     */
+    fun <K, V> getMap(name: String, codec: Codec, options: MapOptions<K, V>): RMapCoroutines<K, V>
 
     /**
      * Returns Lock instance by name.
