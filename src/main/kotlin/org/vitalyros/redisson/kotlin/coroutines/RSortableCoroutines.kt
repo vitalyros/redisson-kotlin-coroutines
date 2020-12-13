@@ -16,7 +16,6 @@
 package org.vitalyros.redisson.kotlin.coroutines
 
 import org.redisson.api.SortOrder
-import reactor.core.publisher.Mono
 
 /**
  *
@@ -26,7 +25,7 @@ import reactor.core.publisher.Mono
  *
  *
  * @param <V> object type
-</V> */
+ */
 interface RSortableCoroutines<V> {
     /**
      * Read data in sorted view

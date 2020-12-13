@@ -4,7 +4,7 @@ import kotlinx.coroutines.reactive.awaitSingle
 import org.redisson.api.RCollectionReactive
 import org.vitalyros.redisson.kotlin.coroutines.RCollectionCoroutines
 
-class RedissonCollectionCorotuinesReactive<V>(val wrapped: RCollectionReactive<V>): ExpireableCoroutinesReactive(wrapped), RCollectionCoroutines<V> {
+abstract class CollectionCoroutinesReactive<V>(private val wrapped: RCollectionReactive<V>): ExpireableCoroutinesReactive(wrapped), RCollectionCoroutines<V> {
     override suspend fun iterator(): Iterator<V> = wrapped.iterator().collectList().awaitSingle().iterator()
 
     override suspend fun retainAll(c: Collection<*>): Boolean = wrapped.retainAll(c).awaitSingle()

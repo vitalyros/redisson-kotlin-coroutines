@@ -9,7 +9,7 @@ package org.vitalyros.redisson.kotlin.coroutines
  *
  *
  * @param <V> value
-</V> */
+ */
 interface RCollectionCoroutines<V> : RExpirableCoroutines {
     /**
      * Returns iterator over collection elements

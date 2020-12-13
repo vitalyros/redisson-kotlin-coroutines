@@ -2,7 +2,7 @@ package org.vitalyros.redisson.kotlin.coroutines;
 
 import org.redisson.api.MapOptions
 import org.redisson.api.RLock
-import org.redisson.api.RMapReactive
+import org.redisson.api.RSetReactive
 import org.redisson.client.codec.Codec
 import org.redisson.config.Config
 import java.util.concurrent.TimeUnit
@@ -100,6 +100,46 @@ interface RedissonCoroutinesClient {
      * @return Map object
      */
     fun <K, V> getMap(name: String, codec: Codec, options: MapOptions<K, V>): RMapCoroutines<K, V>
+
+    /**
+     * Returns list instance by name.
+     *
+     * @param <V> type of values
+     * @param name - name of object
+     * @return List object
+     */
+    fun <V> getList(name: String): RListCoroutines<V>
+
+    /**
+     * Returns list instance by name
+     * using provided codec for list objects.
+     *
+     * @param <V> type of values
+     * @param name - name of object
+     * @param codec - codec for values
+     * @return List object
+     */
+    fun <V> getList(name: String, codec: Codec): RListCoroutines<V>
+
+    /**
+     * Returns set instance by name.
+     *
+     * @param <V> type of values
+     * @param name - name of object
+     * @return Set object
+     */
+    fun <V> getSet(name: String): RSetCoroutines<V>
+
+    /**
+     * Returns set instance by name
+     * using provided codec for set objects.
+     *
+     * @param <V> type of values
+     * @param name - name of set
+     * @param codec - codec for values
+     * @return Set object
+     */
+    fun <V> getSet(name: String, codec: Codec): RSetCoroutines<V>
 
     /**
      * Returns Lock instance by name.

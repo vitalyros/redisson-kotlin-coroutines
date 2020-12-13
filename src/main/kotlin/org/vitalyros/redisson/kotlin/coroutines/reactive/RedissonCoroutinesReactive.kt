@@ -25,6 +25,14 @@ class RedissonCoroutinesReactive(val wrapped: RedissonReactiveClient) : Redisson
 
     override fun <K, V> getMap(name: String, codec: Codec, options: MapOptions<K, V>): RMapCoroutines<K, V> = MapCoroutinesReactive(wrapped.getMap(name, codec, options))
 
+    override fun <V> getList(name: String): RListCoroutines<V> = ListCoroutinesReactive(wrapped.getList(name))
+
+    override fun <V> getList(name: String, codec: Codec): RListCoroutines<V> = ListCoroutinesReactive(wrapped.getList(name, codec))
+
+    override fun <V> getSet(name: String): RSetCoroutines<V> = SetCoroutinesReactive(wrapped.getSet(name))
+
+    override fun <V> getSet(name: String, codec: Codec): RSetCoroutines<V> = SetCoroutinesReactive(wrapped.getSet(name, codec))
+
     override fun getKeys(): RKeysCoroutines = KeysCoroutinesReactive(wrapped.keys)
 
     override fun getFairLock(name: String): RLockCoroutines = LockCoroutinesReactive(wrapped.getFairLock(name))
@@ -53,4 +61,5 @@ class RedissonCoroutinesReactive(val wrapped: RedissonReactiveClient) : Redisson
 
     override val id: String
         get() = wrapped.id
+
 }

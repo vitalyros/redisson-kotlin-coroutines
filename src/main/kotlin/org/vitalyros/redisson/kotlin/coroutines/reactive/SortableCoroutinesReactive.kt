@@ -5,7 +5,7 @@ import org.redisson.api.RSortableReactive
 import org.redisson.api.SortOrder
 import org.vitalyros.redisson.kotlin.coroutines.RSortableCoroutines
 
-class SortableCoroutinesReactive<V>(val wrapped: RSortableReactive<V>): RSortableCoroutines<V> {
+abstract class SortableCoroutinesReactive<V>(private val wrapped: RSortableReactive<V>): RSortableCoroutines<V> {
     override suspend fun readSorted(order: SortOrder): V = wrapped.readSorted(order).awaitSingle()
 
     override suspend fun readSorted(order: SortOrder, offset: Int, count: Int): V = wrapped.readSorted(order, offset, count).awaitSingle()

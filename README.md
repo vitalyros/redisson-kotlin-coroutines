@@ -16,9 +16,9 @@ A wrapper for Redisson Reactive API to use in kotlin coroutines
 - [x] PermitExpirableSemaphore
 - [x] Lock
 - [x] ReadWriteLock
-- [ ] List
+- [x] List
 - [x] Map
-- [ ] Set
+- [x] Set
 - [ ] ScoredSortedSet
 - [ ] LexSortedSet
 - [ ] Multimap

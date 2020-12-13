@@ -29,7 +29,7 @@ import java.util.function.Function
  *
  * @param <K> key
  * @param <V> value
-</V></K> */
+ */
 interface RMapCoroutines<K, V> : RExpirableCoroutines {
     /**
      * Associates specified key with the given value if key isn't already associated with a value.

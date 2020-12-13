@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.Assert.*
 import org.junit.Test
 
-class RedissonKeysDerivedTest : CoroutinesTest() {
+class KeysDerivedTest : CoroutinesTest() {
 
     @Test
     fun testGetKeys() = runTest {

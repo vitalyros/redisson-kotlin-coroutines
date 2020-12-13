@@ -32,7 +32,7 @@ interface RBucketsCoroutines {
      * @param <V> type of value
      * @param keys - keys
      * @return Map with name of bucket as key and bucket as value
-    </V> */
+     */
     suspend fun <V> get(vararg keys: String): Map<String, V>
 
     /**
