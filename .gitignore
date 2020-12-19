@@ -14,5 +14,7 @@ logs
 *.war
 *.ear
 
+*.pgp
+
 hs_err_pid*
 *.attach_pid*
