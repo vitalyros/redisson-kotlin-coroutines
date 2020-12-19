@@ -6,7 +6,7 @@ import org.junit.Test
 import org.redisson.client.codec.StringCodec
 import java.util.*
 
-class BucketsReactiveDerivedTest : CoroutinesTest() {
+class BucketsDerivedTest : CoroutinesTest() {
     @Test
     fun testGet() = runTest {
         redisson.getBucket<Any>("test1").set("someValue1")

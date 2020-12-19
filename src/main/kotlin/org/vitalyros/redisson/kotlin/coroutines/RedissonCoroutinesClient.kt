@@ -1,8 +1,9 @@
 package org.vitalyros.redisson.kotlin.coroutines;
 
 import org.redisson.api.MapOptions
+import org.redisson.api.RAtomicDoubleReactive
+import org.redisson.api.RAtomicLongReactive
 import org.redisson.api.RLock
-import org.redisson.api.RSetReactive
 import org.redisson.client.codec.Codec
 import org.redisson.config.Config
 import java.util.concurrent.TimeUnit
@@ -101,6 +102,51 @@ interface RedissonCoroutinesClient {
      */
     fun <K, V> getMap(name: String, codec: Codec, options: MapOptions<K, V>): RMapCoroutines<K, V>
 
+
+    /**
+     * Returns List based Multimap instance by name.
+     *
+     * @param <K> type of key
+     * @param <V> type of value
+     * @param name - name of object
+     * @return ListMultimap object
+     */
+    fun <K, V> getListMultimap(name: String): RListMultimapCoroutines<K, V>
+
+    /**
+     * Returns List based Multimap instance by name
+     * using provided codec for both map keys and values.
+     *
+     * @param <K> type of key
+     * @param <V> type of value
+     * @param name - name of object
+     * @param codec - codec for keys and values
+     * @return RListMultimapReactive object
+     */
+    fun <K, V> getListMultimap(name: String, codec: Codec): RListMultimapCoroutines<K, V>
+
+    /**
+     * Returns Set based Multimap instance by name.
+     *
+     * @param <K> type of key
+     * @param <V> type of value
+     * @param name - name of object
+     * @return SetMultimap object
+     */
+    fun <K, V> getSetMultimap(name: String): RSetMultimapCoroutines<K, V>
+
+    /**
+     * Returns Set based Multimap instance by name
+     * using provided codec for both map keys and values.
+     *
+     * @param <K> type of key
+     * @param <V> type of value
+     * @param name - name of object
+     * @param codec - codec for keys and values
+     * @return SetMultimap object
+     */
+    fun <K, V> getSetMultimap(name: String, codec: Codec): RSetMultimapCoroutines<K, V>
+
     /**
      * Returns list instance by name.
      *
@@ -140,6 +186,22 @@ interface RedissonCoroutinesClient {
      * @return Set object
      */
     fun <V> getSet(name: String, codec: Codec): RSetCoroutines<V>
+
+    /**
+     * Returns "atomic long" instance by name.
+     *
+     * @param name of the "atomic long"
+     * @return AtomicLong object
+     */
+    fun getAtomicLong(name: String): RAtomicLongCoroutines
+
+    /**
+     * Returns "atomic double" instance by name.
+     *
+     * @param name of the "atomic double"
+     * @return AtomicLong object
+     */
+    fun getAtomicDouble(name: String): RAtomicDoubleCoroutines
 
     /**
      * Returns Lock instance by name.

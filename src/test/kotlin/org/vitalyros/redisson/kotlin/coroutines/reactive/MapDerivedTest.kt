@@ -3,16 +3,14 @@ package org.vitalyros.redisson.kotlin.coroutines.reactive
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Assert.*
 import org.junit.Test
-import org.redisson.api.RMapReactive
 import org.redisson.client.codec.DoubleCodec
 import org.redisson.client.codec.IntegerCodec
 import org.redisson.codec.CompositeCodec
 import org.vitalyros.redisson.kotlin.coroutines.RMapCoroutines
 import java.io.Serializable
 import java.util.*
-import java.util.concurrent.ExecutionException
 
-class MapCoroutinesReactiveDerivedTest : CoroutinesTest() {
+class MapDerivedTest : CoroutinesTest() {
     class SimpleKey : Serializable {
         var key: String? = null
 

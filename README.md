@@ -21,9 +21,8 @@ A wrapper for Redisson Reactive API to use in kotlin coroutines
 - [x] Set
 - [ ] ScoredSortedSet
 - [ ] LexSortedSet
-- [ ] Multimap
-- [ ] ListMultimap
-- [ ] SetMultimap
+- [x] ListMultimap
+- [x] SetMultimap
 - [ ] Topic
 - [ ] ReliableTopic
 - [ ] PatternTopic
@@ -33,8 +32,8 @@ A wrapper for Redisson Reactive API to use in kotlin coroutines
 - [ ] BlockingDeque
 - [ ] TransferQueue
 - [ ] Deque
-- [ ] AtomicLong
-- [ ] AtomicDouble
+- [x] AtomicLong
+- [x] AtomicDouble
 - [ ] Remote
 - [ ] Script
 - [ ] Transaction

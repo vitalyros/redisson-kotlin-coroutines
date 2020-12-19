@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 /**
  * Lock has been thoroughly tested in Redisson
  */
-class LockCoroutinesReactiveTest : CoroutinesTest() {
+class LockTest : CoroutinesTest() {
     @After
     fun afterLockTests() = runTest {
         getTestLock().forceUnlock()

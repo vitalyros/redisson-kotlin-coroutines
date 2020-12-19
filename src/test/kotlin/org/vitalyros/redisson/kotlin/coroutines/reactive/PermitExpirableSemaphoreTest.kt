@@ -5,10 +5,9 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.vitalyros.redisson.kotlin.coroutines.RPermitExpirableSemaphoreCoroutines
-import org.vitalyros.redisson.kotlin.coroutines.RSemaphoreCoroutines
 import java.util.concurrent.TimeUnit
 
-open class PermitExpirableSemaphoreReactiveTest : CoroutinesTest() {
+open class PermitExpirableSemaphoreTest : CoroutinesTest() {
     companion object {
         val TOTAL_PERMITS = 3
     }

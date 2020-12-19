@@ -1,8 +1,6 @@
 package org.vitalyros.redisson.kotlin.coroutines.reactive;
 
-import org.redisson.api.MapOptions
-import org.redisson.api.RLock
-import org.redisson.api.RedissonReactiveClient
+import org.redisson.api.*
 import org.redisson.client.codec.Codec
 import org.redisson.config.Config
 import org.vitalyros.redisson.kotlin.coroutines.*
@@ -25,6 +23,14 @@ class RedissonCoroutinesReactive(val wrapped: RedissonReactiveClient) : Redisson
 
     override fun <K, V> getMap(name: String, codec: Codec, options: MapOptions<K, V>): RMapCoroutines<K, V> = MapCoroutinesReactive(wrapped.getMap(name, codec, options))
 
+    override fun <K, V> getListMultimap(name: String): RListMultimapCoroutines<K, V> = ListMultimapCoroutinesReactive(wrapped.getListMultimap(name))
+
+    override fun <K, V> getListMultimap(name: String, codec: Codec): RListMultimapCoroutines<K, V> = ListMultimapCoroutinesReactive(wrapped.getListMultimap(name, codec))
+
+    override fun <K, V> getSetMultimap(name: String): RSetMultimapCoroutines<K, V> = SetMultimapCoroutinesReactive(wrapped.getSetMultimap(name))
+
+    override fun <K, V> getSetMultimap(name: String, codec: Codec): RSetMultimapCoroutines<K, V> = SetMultimapCoroutinesReactive(wrapped.getSetMultimap(name, codec))
+
     override fun <V> getList(name: String): RListCoroutines<V> = ListCoroutinesReactive(wrapped.getList(name))
 
     override fun <V> getList(name: String, codec: Codec): RListCoroutines<V> = ListCoroutinesReactive(wrapped.getList(name, codec))
@@ -32,6 +38,10 @@ class RedissonCoroutinesReactive(val wrapped: RedissonReactiveClient) : Redisson
     override fun <V> getSet(name: String): RSetCoroutines<V> = SetCoroutinesReactive(wrapped.getSet(name))
 
     override fun <V> getSet(name: String, codec: Codec): RSetCoroutines<V> = SetCoroutinesReactive(wrapped.getSet(name, codec))
+
+    override fun getAtomicLong(name: String): RAtomicLongCoroutines = AtomicLongCoroutinesReactive(wrapped.getAtomicLong(name))
+
+    override fun getAtomicDouble(name: String): RAtomicDoubleCoroutines = AtomicDoubleCoroutinesReactive(wrapped.getAtomicDouble(name))
 
     override fun getKeys(): RKeysCoroutines = KeysCoroutinesReactive(wrapped.keys)
 

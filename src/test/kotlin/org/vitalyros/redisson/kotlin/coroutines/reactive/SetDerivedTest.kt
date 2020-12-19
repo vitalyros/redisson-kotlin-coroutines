@@ -8,7 +8,7 @@ import org.vitalyros.redisson.kotlin.coroutines.RSetCoroutines
 import java.io.Serializable
 import java.util.*
 
-class SetCoroutinesTest : CoroutinesTest() {
+class SetDerivedTest : CoroutinesTest() {
     class SimpleBean : Serializable {
         var lng: Long? = null
 

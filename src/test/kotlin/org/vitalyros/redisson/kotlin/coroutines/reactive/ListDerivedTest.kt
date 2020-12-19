@@ -8,7 +8,7 @@ import org.redisson.TestObject
 import org.redisson.client.RedisException
 import org.vitalyros.redisson.kotlin.coroutines.RListCoroutines
 
-class ListCoroutinesDerivedTest : CoroutinesTest() {
+class ListDerivedTest : CoroutinesTest() {
     @Test
     fun testAddByIndex() = runTest {
         val test2 = redisson.getList<String>("test2")

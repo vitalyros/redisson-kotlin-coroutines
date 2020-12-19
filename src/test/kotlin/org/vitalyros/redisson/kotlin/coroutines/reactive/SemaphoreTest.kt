@@ -7,7 +7,7 @@ import org.junit.Test
 import org.vitalyros.redisson.kotlin.coroutines.RSemaphoreCoroutines
 import java.util.concurrent.TimeUnit
 
-open class SemaphoreReactiveTest : CoroutinesTest() {
+open class SemaphoreTest : CoroutinesTest() {
     companion object {
         val TOTAL_PERMITS = 10
     }

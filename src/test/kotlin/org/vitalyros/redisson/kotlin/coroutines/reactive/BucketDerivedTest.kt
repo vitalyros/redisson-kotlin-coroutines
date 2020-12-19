@@ -6,7 +6,7 @@ import org.junit.Test
 import java.util.*
 import java.util.concurrent.TimeUnit
 
-open class BucketCoroutinesReactiveDerivedTest : CoroutinesTest() {
+open class BucketDerivedTest : CoroutinesTest() {
 
     @Test
     fun testExpire() = runTest {
