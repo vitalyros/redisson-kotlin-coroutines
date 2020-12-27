@@ -22,6 +22,7 @@
 
     <scm>
         <developerConnection>scm:git:git@github.com:vitalyros/redisson-kotlin-coroutines.git</developerConnection>
+        <url>https://github.com/vitalyros/redisson-kotlin-coroutines.git</url>
         <tag>HEAD</tag>
     </scm>
 
