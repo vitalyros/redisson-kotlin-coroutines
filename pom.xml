@@ -6,7 +6,7 @@
     <groupId>com.github.vitalyros</groupId>
     <artifactId>redisson-kotlin-coroutines-reactive</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
 
     <name>Redisson Kotlin Coroutines Reactive</name>
     <description>A wrapper for Redisson Reactive API to use in kotlin coroutines</description>
@@ -28,7 +28,7 @@
 
     <developers>
         <developer>
-            <name>Viraly Roslov</name>
+            <name>Vitaly Roslov</name>
             <email>22212673+vitalyros@users.noreply.github.com</email>
         </developer>
     </developers>
