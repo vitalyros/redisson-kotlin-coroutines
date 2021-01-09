@@ -44,7 +44,7 @@ runBlocking {
 - [x] Keys
 - [x] Bucket
 - [x] Buckets
-- [ ] IdGenerator
+- [x] IdGenerator
 - [x] Semaphore
 - [x] PermitExpirableSemaphore
 - [x] Lock

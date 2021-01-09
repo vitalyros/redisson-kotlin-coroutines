@@ -57,6 +57,8 @@ class RedissonCoroutinesReactive(val wrapped: RedissonReactiveClient) : Redisson
 
     override fun getReadWriteLock(name: String): RReadWriteLockCoroutines = ReadWriteLockCoroutinesReactive(wrapped.getReadWriteLock(name))
 
+    override fun getIdGenerator(name: String): RIdGeneratorCoroutines = IdGeneratorCoroutinesReactive(wrapped.getIdGenerator(name))
+
     override fun shutdown() = wrapped.shutdown()
 
     override fun shutdown(quietPeriod: Long, timeout: Long, unit: TimeUnit) = wrapped.shutdown()

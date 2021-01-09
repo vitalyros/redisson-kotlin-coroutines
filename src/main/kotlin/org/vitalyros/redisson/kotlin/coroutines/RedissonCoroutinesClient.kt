@@ -1,8 +1,7 @@
 package org.vitalyros.redisson.kotlin.coroutines;
 
 import org.redisson.api.MapOptions
-import org.redisson.api.RAtomicDoubleReactive
-import org.redisson.api.RAtomicLongReactive
+import org.redisson.api.RIdGenerator
 import org.redisson.api.RLock
 import org.redisson.client.codec.Codec
 import org.redisson.config.Config
@@ -266,6 +265,14 @@ interface RedissonCoroutinesClient {
      * @return Lock object
      */
     fun getReadWriteLock(name: String): RReadWriteLockCoroutines
+
+    /**
+     * Returns id generator by name.
+     *
+     * @param name - name of object
+     * @return IdGenerator object
+     */
+    fun getIdGenerator(name: String): RIdGeneratorCoroutines
 
     /**
      * Shutdown Redisson instance but **NOT** Redis server
